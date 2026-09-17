@@ -1,25 +1,53 @@
+import { useEffect } from "react";
 import logo from "../assets/logo.jpeg";
 import "./Home.css";
+
 import {
   FaWhatsapp,
   FaLinkedinIn,
 } from "react-icons/fa";
+
 import { SiGmail } from "react-icons/si";
 import { FaXTwitter } from "react-icons/fa6";
 
 import profileImage from "../assets/profile.png";
 
 function Home() {
+  useEffect(() => {
+    const elements = document.querySelectorAll(".home-reveal");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+          } else {
+            entry.target.classList.remove("show");
+          }
+        });
+      },
+      {
+        threshold: 0.15,
+      }
+    );
+
+    elements.forEach((element) => observer.observe(element));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <main className="home">
+    <main className="home" id="home">
+
       {/* NAVBAR */}
-      <nav className="navbar">
+      <nav className="navbar home-reveal">
+
         <div className="nav-brand">
           <img
-  src={logo}
-  alt="Tabot Logo"
-  className="nav-logo"
-/>
+            src={logo}
+            alt="Tabot Logo"
+            className="nav-logo"
+          />
 
           <div className="brand-text">
             <h2>TABOT</h2>
@@ -28,8 +56,9 @@ function Home() {
         </div>
 
         <div className="nav-links">
+
           <a href="#home" className="active">
-           <h3>Home</h3> 
+            <h3>Home</h3>
           </a>
 
           <a href="#about">
@@ -37,7 +66,7 @@ function Home() {
           </a>
 
           <a href="#skills">
-           <h3>Skills</h3>
+            <h3>Skills</h3>
           </a>
 
           <a href="#projects">
@@ -51,50 +80,62 @@ function Home() {
           <a href="#contact">
             <h3>Contact</h3>
           </a>
+
         </div>
 
         <a href="#contact" className="hire-button">
           Hire Me
           <span>↗</span>
         </a>
+
       </nav>
 
       {/* HERO */}
-      <section className="hero" id="home">
+      <section className="hero">
+
         <div className="hero-content">
 
-          <div className="hero-intro">
+          <div className="hero-intro home-reveal">
             <span>
-             HELLO, I'M TABOT
+              HELLO, I'M TABOT
             </span>
+
             <div className="intro-line"></div>
           </div>
 
-          <h1>
+          <h1 className="home-reveal">
             Full-Stack
             <br />
             <span>Developer.</span>
           </h1>
 
-          <p className="hero-description">
-           Full-Stack Developer I build modern, practical web applications with clean design,
-            useful functionality, and a focus on creating great user
-            experiences.
+          <p className="hero-description home-reveal">
+            Full-Stack Developer I build modern, practical web applications
+            with clean design, useful functionality, and a focus on creating
+            great user experiences.
           </p>
 
-          <div className="hero-buttons">
-            <a href="#projects" className="primary-button">
+          <div className="hero-buttons home-reveal">
+
+            <a
+              href="#projects"
+              className="primary-button"
+            >
               View My Work
-              
             </a>
 
-            <a href="#contact" className="secondary-button">
+            <a
+              href="#contact"
+              className="secondary-button"
+            >
               Contact Me
             </a>
+
           </div>
 
           {/* SOCIAL ICONS */}
-          <div className="social-area">
+          <div className="social-area home-reveal">
+
             <div className="social-icons">
 
               <a
@@ -136,17 +177,18 @@ function Home() {
             <span className="social-tagline">
               BUILD / SOLVE / IMPROVE
             </span>
+
           </div>
+
         </div>
 
-        {/* PROFILE IMAGE AREA */}
-        <div className="hero-image">
+        {/* PROFILE IMAGE */}
+        <div className="hero-image home-reveal">
 
-          {/* RINGS — BEHIND PHOTO */}
           <div className="ring ring-one"></div>
+
           <div className="ring ring-two"></div>
 
-          {/* PHOTO */}
           <img
             src={profileImage}
             alt="Tabot"
@@ -155,13 +197,19 @@ function Home() {
 
         </div>
 
-        {/* RIGHT SIDE SCROLL INDICATOR */}
-        <div className="scroll-indicator">
+        {/* SCROLL INDICATOR */}
+        <div className="scroll-indicator home-reveal">
+
           <span>SCROLL DOWN</span>
+
           <div className="scroll-line"></div>
+
           <div className="scroll-dot"></div>
+
         </div>
+
       </section>
+
     </main>
   );
 }
