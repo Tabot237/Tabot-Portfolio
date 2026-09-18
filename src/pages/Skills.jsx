@@ -31,6 +31,10 @@ function Skills() {
       const x = event.clientX - rect.left;
       const centerX = rect.width / 2;
 
+      /*
+        Small 2D sideways tilt.
+        Maximum rotation = 2.5 degrees.
+      */
       const rotate = ((x - centerX) / centerX) * 2.5;
 
       card.style.transform = `rotate(${rotate}deg)`;
@@ -61,6 +65,10 @@ function Skills() {
     <section className="skills" id="skills">
       <div className="skills-container">
 
+        {/* =========================
+            HEADING
+        ========================= */}
+
         <div className="skills-heading skills-reveal">
           <span className="section-label">
             MY SKILLS
@@ -77,73 +85,334 @@ function Skills() {
           </p>
         </div>
 
+        {/* =========================
+            SKILLS GRID
+        ========================= */}
+
         <div className="skills-grid">
 
-          <div className="skill-card skills-reveal">
-            <span className="skill-number">01</span>
+          {/* =========================
+              FRONTEND
+          ========================= */}
 
-            <h3>Frontend</h3>
+          <div className="skill-card-wrapper skills-reveal">
+            <div className="skill-card skill-card-blue">
 
-            <p>
-              Building responsive and interactive user interfaces.
-            </p>
+              <div className="skill-glow"></div>
 
-            <div className="skill-list">
-              <span>HTML</span>
-              <span>CSS</span>
-              <span>JavaScript</span>
-              <span>React</span>
-              <span>Vite</span>
+              <div className="skill-card-content">
+
+                <div className="skill-card-title">
+                  <h3>Frontend Development</h3>
+                </div>
+
+                <div className="skill-items">
+
+                  <div className="skill-item">
+                    <img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"
+                      alt="HTML"
+                    />
+
+                    <div>
+                      <strong>HTML</strong>
+                      <span>Experienced</span>
+                    </div>
+                  </div>
+
+                  <div className="skill-item">
+                    <img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
+                      alt="JavaScript"
+                    />
+
+                    <div>
+                      <strong>JavaScript</strong>
+                      <span>Experienced</span>
+                    </div>
+                  </div>
+
+                  <div className="skill-item">
+                    <img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg"
+                      alt="TypeScript"
+                    />
+
+                    <div>
+                      <strong>TypeScript</strong>
+                      <span>Experienced</span>
+                    </div>
+                  </div>
+
+                  <div className="skill-item">
+                    <img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
+                      alt="React"
+                    />
+
+                    <div>
+                      <strong>React</strong>
+                      <span>Experienced</span>
+                    </div>
+                  </div>
+
+                  <div className="skill-item">
+                    <img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg"
+                      alt="Next.js"
+                    />
+
+                    <div>
+                      <strong>Next.js</strong>
+                      <span>Experienced</span>
+                    </div>
+                  </div>
+
+                  <div className="skill-item">
+                    <img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
+                      alt="React Native"
+                    />
+
+                    <div>
+                      <strong>React Native</strong>
+                      <span>Experienced</span>
+                    </div>
+                  </div>
+
+                  <div className="skill-item">
+                    <img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg"
+                      alt="Vite"
+                    />
+
+                    <div>
+                      <strong>Vite</strong>
+                      <span>Experienced</span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
             </div>
           </div>
 
-          <div className="skill-card skills-reveal">
-            <span className="skill-number">02</span>
+          {/* =========================
+              BACKEND
+          ========================= */}
 
-            <h3>Backend</h3>
+          <div className="skill-card-wrapper skills-reveal">
+            <div className="skill-card skill-card-green">
 
-            <p>
-              Creating functional applications and server-side systems.
-            </p>
+              <div className="skill-glow"></div>
 
-            <div className="skill-list">
-              <span>Node.js</span>
-              <span>Express</span>
-              <span>APIs</span>
-              <span>Databases</span>
+              <div className="skill-card-content">
+
+                <div className="skill-card-title">
+                  <h3>Backend &amp; Databases</h3>
+                </div>
+
+                <div className="skill-items">
+
+                  <div className="skill-item">
+                    <img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nestjs/nestjs-original.svg"
+                      alt="NestJS"
+                    />
+
+                    <div>
+                      <strong>NestJS</strong>
+                      <span>Experienced</span>
+                    </div>
+                  </div>
+
+                  <div className="skill-item">
+                    <img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original-wordmark.svg"
+                      alt="Go"
+                    />
+
+                    <div>
+                      <strong>Go</strong>
+                      <span>Experienced</span>
+                    </div>
+                  </div>
+
+                  <div className="skill-item">
+                    <img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg"
+                      alt="PostgreSQL"
+                    />
+
+                    <div>
+                      <strong>PostgreSQL</strong>
+                      <span>Experienced</span>
+                    </div>
+                  </div>
+
+                  <div className="skill-item">
+                    <img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-plain.svg"
+                      alt="Firebase"
+                    />
+
+                    <div>
+                      <strong>Firebase</strong>
+                      <span>Intermediate</span>
+                    </div>
+                  </div>
+
+                  <div className="skill-item">
+                    <img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg"
+                      alt="Node.js"
+                    />
+
+                    <div>
+                      <strong>Node.js</strong>
+                      <span>Experienced</span>
+                    </div>
+                  </div>
+
+                  <div className="skill-item">
+                    <img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg"
+                      alt="Express"
+                    />
+
+                    <div>
+                      <strong>Express</strong>
+                      <span>Experienced</span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
             </div>
           </div>
 
-          <div className="skill-card skills-reveal">
-            <span className="skill-number">03</span>
+          {/* =========================
+              TOOLS
+          ========================= */}
 
-            <h3>Tools</h3>
+          <div className="skill-card-wrapper skills-reveal">
+            <div className="skill-card skill-card-purple">
 
-            <p>
-              Tools I use to develop, manage and improve projects.
-            </p>
+              <div className="skill-glow"></div>
 
-            <div className="skill-list">
-              <span>Git</span>
-              <span>GitHub</span>
-              <span>VS Code</span>
-              <span>npm</span>
+              <div className="skill-card-content">
+
+                <div className="skill-card-title">
+                  <h3>Development Tools</h3>
+                </div>
+
+                <div className="skill-items">
+
+                  <div className="skill-item">
+                    <img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg"
+                      alt="Git"
+                    />
+
+                    <div>
+                      <strong>Git</strong>
+                      <span>Experienced</span>
+                    </div>
+                  </div>
+
+                  <div className="skill-item">
+                    <img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg"
+                      alt="GitHub"
+                    />
+
+                    <div>
+                      <strong>GitHub</strong>
+                      <span>Experienced</span>
+                    </div>
+                  </div>
+
+                  <div className="skill-item">
+                    <img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg"
+                      alt="VS Code"
+                    />
+
+                    <div>
+                      <strong>VS Code</strong>
+                      <span>Experienced</span>
+                    </div>
+                  </div>
+
+                  <div className="skill-item">
+                    <img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/npm/npm-original-wordmark.svg"
+                      alt="npm"
+                    />
+
+                    <div>
+                      <strong>npm</strong>
+                      <span>Experienced</span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
             </div>
           </div>
 
-          <div className="skill-card skills-reveal">
-            <span className="skill-number">04</span>
+          {/* =========================
+              OTHER
+          ========================= */}
 
-            <h3>Other</h3>
+          <div className="skill-card-wrapper skills-reveal">
+            <div className="skill-card skill-card-gold">
 
-            <p>
-              Practical technologies and concepts used across projects.
-            </p>
+              <div className="skill-glow"></div>
 
-            <div className="skill-list">
-              <span>UI Design</span>
-              <span>Responsive Design</span>
-              <span>Problem Solving</span>
+              <div className="skill-card-content">
+
+                <div className="skill-card-title">
+                  <h3>Other Skills</h3>
+                </div>
+
+                <div className="skill-items">
+
+                  <div className="skill-item">
+                    <div className="skill-text-icon">
+                      UI
+                    </div>
+
+                    <div>
+                      <strong>UI Design</strong>
+                      <span>Experienced</span>
+                    </div>
+                  </div>
+
+                  <div className="skill-item">
+                    <div className="skill-text-icon">
+                      RD
+                    </div>
+
+                    <div>
+                      <strong>Responsive Design</strong>
+                      <span>Experienced</span>
+                    </div>
+                  </div>
+
+                  <div className="skill-item">
+                    <div className="skill-text-icon">
+                      PS
+                    </div>
+
+                    <div>
+                      <strong>Problem Solving</strong>
+                      <span>Experienced</span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
             </div>
           </div>
 
