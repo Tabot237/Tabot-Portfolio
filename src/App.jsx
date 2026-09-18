@@ -3,15 +3,17 @@ import About from "./pages/About";
 import Skills from "./pages/Skills";
 import Projects from "./pages/Projects";
 import Experience from "./pages/Experience";
+import Services from "./pages/Services";
 
 function App() {
   return (
     <>
-      <Home />
-      <About />
-      <Skills />
-      <Projects />
-      <Experience />
+     <Home />
+<About />
+<Skills />
+<Projects />
+<Experience />
+<Services />
     </>
   );
 }
