@@ -70,9 +70,7 @@ function Skills() {
         ========================= */}
 
         <div className="skills-heading skills-reveal">
-          <span className="section-label">
-            MY SKILLS
-          </span>
+         <h2 className="page-heading">My Skills</h2>
 
           <h2>
             Tools I use to

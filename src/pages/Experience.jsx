@@ -98,10 +98,7 @@ function Experience() {
 
         <div className="experience-heading experience-reveal">
 
-          <span className="section-label">
-            EXPERIENCE
-          </span>
-
+        <h2 className="page-heading">Experience</h2>
           <h2>
             Where I’ve
             <span> learned and grown.</span>

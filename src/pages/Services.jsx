@@ -126,7 +126,7 @@ function Services() {
       <div className="services-container">
 
         <div className="services-heading services-reveal">
-          <span className="section-label">SERVICES</span>
+         <h2 className="page-heading">Services</h2>
 
           <h2>
             What I

@@ -76,7 +76,9 @@ function Home() {
           <a href="#experience">
             <h3>Experience</h3>
           </a>
-
+ <a href="#contact">
+            <h3>Services</h3>
+          </a>
           <a href="#contact">
             <h3>Contact</h3>
           </a>

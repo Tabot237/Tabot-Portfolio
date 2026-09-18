@@ -214,9 +214,7 @@ function Projects() {
         ========================= */}
 
         <div className="projects-heading projects-reveal">
-          <span className="section-label">
-            MY PROJECTS
-          </span>
+        <h2 className="page-heading">Projects</h2>
 
           <h2>
             Things I've
