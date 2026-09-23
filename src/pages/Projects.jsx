@@ -66,14 +66,14 @@ const projects = [
     technologies: ["React", "Node.js", "API"],
   },
   {
-  title: "CampusHub",
-  category: "Student Platform",
-  description:
-    "A digital platform designed to bring useful student resources and campus services together.",
-  image:
-    "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=85",
-  technologies: ["React", "JavaScript", "Database"],
-},
+    title: "CampusHub",
+    category: "Student Platform",
+    description:
+      "A digital platform designed to bring useful student resources and campus services together.",
+    image:
+      "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=85",
+    technologies: ["React", "JavaScript", "Database"],
+  },
   {
     title: "Fixora",
     category: "Service Platform",
@@ -138,7 +138,6 @@ const technologyLogos = {
 
 /* =========================
    FALLBACK ICONS
-   For generic technologies
 ========================= */
 
 const fallbackLogos = {
@@ -147,12 +146,68 @@ const fallbackLogos = {
 
   Database:
     "https://cdn.simpleicons.org/databricks/ffffff",
+};
 
-  QR:
-    "https://cdn.simpleicons.org/qrcode/ffffff",
+/* =========================
+   QR LOGO
+   Inline SVG so it does not
+   depend on an external URL.
+========================= */
+
+function QRLogo() {
+  return (
+    <svg
+      viewBox="0 0 64 64"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <rect width="64" height="64" rx="8" fill="#ffffff" />
+
+      {/* Top-left finder */}
+      <rect x="7" y="7" width="18" height="18" fill="#111111" />
+      <rect x="11" y="11" width="10" height="10" fill="#ffffff" />
+      <rect x="14" y="14" width="4" height="4" fill="#111111" />
+
+      {/* Top-right finder */}
+      <rect x="39" y="7" width="18" height="18" fill="#111111" />
+      <rect x="43" y="11" width="10" height="10" fill="#ffffff" />
+      <rect x="46" y="14" width="4" height="4" fill="#111111" />
+
+      {/* Bottom-left finder */}
+      <rect x="7" y="39" width="18" height="18" fill="#111111" />
+      <rect x="11" y="43" width="10" height="10" fill="#ffffff" />
+      <rect x="14" y="46" width="4" height="4" fill="#111111" />
+
+      {/* QR pattern */}
+      <rect x="30" y="29" width="5" height="5" fill="#111111" />
+      <rect x="38" y="29" width="5" height="5" fill="#111111" />
+      <rect x="47" y="29" width="5" height="5" fill="#111111" />
+
+      <rect x="28" y="38" width="5" height="5" fill="#111111" />
+      <rect x="36" y="38" width="5" height="5" fill="#111111" />
+      <rect x="45" y="38" width="5" height="5" fill="#111111" />
+
+      <rect x="29" y="47" width="5" height="5" fill="#111111" />
+      <rect x="38" y="48" width="5" height="5" fill="#111111" />
+      <rect x="48" y="47" width="5" height="5" fill="#111111" />
+    </svg>
+  );
 };
 
 function TechnologyLogo({ technology }) {
+  /* MenuGo QR logo */
+  if (technology === "QR") {
+    return (
+      <span
+        className="project-tech-logo"
+        title="QR"
+      >
+        <QRLogo />
+      </span>
+    );
+  }
+
   const logo =
     technologyLogos[technology] ||
     fallbackLogos[technology];
@@ -209,17 +264,13 @@ function Projects() {
     <section className="projects" id="projects">
       <div className="projects-container">
 
-        {/* =========================
-            HEADING
-        ========================= */}
+        {/* HEADING */}
 
         <div className="projects-heading">
           <h2 className="page-heading">Projects</h2>
         </div>
 
-        {/* =========================
-            PROJECT GRID
-        ========================= */}
+        {/* PROJECT GRID */}
 
         <div className="projects-grid">
 
@@ -261,7 +312,7 @@ function Projects() {
                   {project.description}
                 </p>
 
-                {/* LIVE PROJECT ACTION — intentionally above technology logos */}
+                {/* LIVE PROJECT ACTION */}
 
                 <div className="project-links project-links-primary">
                   <span className="project-link project-link-disabled">
