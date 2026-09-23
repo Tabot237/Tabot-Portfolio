@@ -15,48 +15,44 @@ function Skills() {
           }
         });
       },
-      {
-        threshold: 0.15,
-      }
+      { threshold: 0.15 }
     );
 
     elements.forEach((element) => observer.observe(element));
 
+    // Use the same restrained 3D card interaction as the Services cards.
     const cards = document.querySelectorAll(".skill-card");
-
-    const handleMouseMove = (event) => {
-      const card = event.currentTarget;
-      const rect = card.getBoundingClientRect();
-
-      const x = event.clientX - rect.left;
-      const centerX = rect.width / 2;
-
-      /*
-        Small 2D sideways tilt.
-        Maximum rotation = 2.5 degrees.
-      */
-      const rotate = ((x - centerX) / centerX) * 2.5;
-
-      card.style.transform = `rotate(${rotate}deg)`;
-    };
-
-    const handleMouseLeave = (event) => {
-      const card = event.currentTarget;
-
-      card.style.transform = "rotate(0deg)";
-    };
+    const handlers = [];
 
     cards.forEach((card) => {
+      const handleMouseMove = (event) => {
+        const rect = card.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateY = ((x - centerX) / centerX) * 4;
+        const rotateX = ((centerY - y) / centerY) * 3;
+
+        card.style.setProperty("--rotate-x", `${rotateX}deg`);
+        card.style.setProperty("--rotate-y", `${rotateY}deg`);
+      };
+
+      const handleMouseLeave = () => {
+        card.style.setProperty("--rotate-x", "0deg");
+        card.style.setProperty("--rotate-y", "0deg");
+      };
+
       card.addEventListener("mousemove", handleMouseMove);
       card.addEventListener("mouseleave", handleMouseLeave);
+      handlers.push([card, handleMouseMove, handleMouseLeave]);
     });
 
     return () => {
       observer.disconnect();
-
-      cards.forEach((card) => {
-        card.removeEventListener("mousemove", handleMouseMove);
-        card.removeEventListener("mouseleave", handleMouseLeave);
+      handlers.forEach(([card, move, leave]) => {
+        card.removeEventListener("mousemove", move);
+        card.removeEventListener("mouseleave", leave);
       });
     };
   }, []);
@@ -69,18 +65,8 @@ function Skills() {
             HEADING
         ========================= */}
 
-        <div className="skills-heading skills-reveal">
-         <h2 className="page-heading">My Skills</h2>
-
-          <h2>
-            Tools I use to
-            <span> build and solve.</span>
-          </h2>
-
-          <p>
-            Technologies and tools I use to build modern,
-            practical web applications.
-          </p>
+        <div className="skills-heading">
+          <h2 className="page-heading">My Skills</h2>
         </div>
 
         {/* =========================

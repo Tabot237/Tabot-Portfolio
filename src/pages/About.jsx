@@ -1,90 +1,99 @@
 import { useEffect } from "react";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import "./About.css";
-import profileImage from "../assets/profile.png";
 
 function About() {
-useEffect(() => {
-  const elements = document.querySelectorAll(".about-reveal");
+  useEffect(() => {
+    const elements = document.querySelectorAll(".about-reveal");
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("show");
-        } else {
-          entry.target.classList.remove("show");
-        }
-      });
-    },
-    {
-      threshold: 0.15,
-    }
-  );
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
 
-  elements.forEach((element) => observer.observe(element));
+    elements.forEach((element) => observer.observe(element));
 
-  return () => observer.disconnect();
-}, []);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section className="about" id="about">
       <div className="about-container">
 
-        <div className="about-image about-reveal">
-          <div className="about-image-ring"></div>
-
-          <img
-            src={profileImage}
-            alt="Tabot"
-          />
+        {/* Page title */}
+        <div className="about-heading">
+          <h2 className="page-heading">About Me</h2>
         </div>
 
-        <div className="about-content">
+        {/* Code on the left + content on the right */}
+        <div className="about-code-section">
 
-          <span className="section-label about-reveal">
-            ABOUT ME
-          </span>
-
-          <h2 className="about-reveal">
-            Turning ideas into
-            <span> practical solutions.</span>
-          </h2>
-
-          <p className="about-reveal">
-            I’m a Full-Stack Developer interested in building modern,
-            practical web applications that solve real problems.
-          </p>
-
-          <p className="about-reveal">
-            I enjoy working across both the frontend and backend,
-            combining clean interfaces with useful functionality to
-            create applications that are simple and effective to use.
-          </p>
-
-          <div className="about-info about-reveal">
-
-            <div className="info-item">
-              <span>ROLE</span>
-              <strong>Full-Stack Developer</strong>
+          {/* LEFT: Code card */}
+          <div className="code-window about-reveal">
+            <div className="code-window-top">
+              <span></span>
+              <span></span>
+              <span></span>
             </div>
 
-            <div className="info-item">
-              <span>FOCUS</span>
-              <strong>Web Development</strong>
+            <pre>{`const developer = {
+  firstName: "Tabot",
+  lastName: "Ghislain Orock",
+  role: "Full-Stack Developer",
+  focus: "Web Applications",
+  approach: "Build / Solve / Improve",
+};`}</pre>
+          </div>
+
+          {/* RIGHT: Writing, stats and socials */}
+          <div className="about-content">
+
+            {/* Description */}
+            <div className="about-copy about-reveal">
+              <p>
+                I'm Tabot Ghislain Orock, a Full-Stack Developer with a passion for creating
+                user-friendly applications. I enjoy building practical
+                solutions across the frontend and backend, with a focus on
+                clean interfaces and useful functionality.
+              </p>
             </div>
 
-            <div className="info-item">
-              <span>APPROACH</span>
-              <strong>Build / Solve / Improve</strong>
+            {/* Stats */}
+            <div className="about-stats about-reveal">
+              <div>
+                <strong>4+</strong>
+                <span>Years of Experience</span>
+              </div>
+
+              <div>
+                <strong>10+</strong>
+                <span>Completed Projects</span>
+              </div>
+
+              <div>
+                <strong>10+</strong>
+                <span>Technologies Used</span>
+              </div>
+            </div>
+
+            {/* Social links */}
+            <div className="about-socials about-reveal">
+              <a href="#contact" aria-label="GitHub">
+                <FaGithub />
+              </a>
+
+              <a href="#contact" aria-label="LinkedIn">
+                <FaLinkedinIn />
+              </a>
             </div>
 
           </div>
-
-          <a href="#skills" className="about-button about-reveal">
-            Explore My Skills
-            <span>↗</span>
-          </a>
-
         </div>
 
       </div>

@@ -2,3 +2,15 @@
   width: 100%;
   min-height: 100vh;
 }
+
+.app-shell {
+  width: 100%;
+  min-height: 100vh;
+  background: #050505;
+  transition: background 0.55s ease, color 0.55s ease;
+}
+
+.app-shell.theme-light {
+  background: #f3f5f7;
+  color: #16181b;
+}

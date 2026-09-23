@@ -666,3 +666,40 @@
     transform: none;
   }
 }
+
+/* =========================================================
+   LIVE ACTION ABOVE TECHNOLOGY LOGOS
+========================================================= */
+
+.project-links-primary {
+  padding-top: 0;
+  padding-bottom: 16px;
+  margin-bottom: 18px;
+  border-top: 0;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+}
+
+.project-links-primary .project-link {
+  color: rgba(255,255,255,.82);
+  font-weight: 600;
+}
+
+.project-links-primary .project-link span {
+  color: #d89b4d;
+  font-size: 17px;
+}
+
+.project-card:hover .project-links-primary .project-link {
+  color: #fff;
+}
+
+.project-technologies {
+  margin-bottom: 0;
+}
+
+@media (max-width: 480px) {
+  .project-links-primary {
+    margin-bottom: 16px;
+    padding-bottom: 14px;
+  }
+}

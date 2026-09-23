@@ -213,18 +213,8 @@ function Projects() {
             HEADING
         ========================= */}
 
-        <div className="projects-heading projects-reveal">
-        <h2 className="page-heading">Projects</h2>
-
-          <h2>
-            Things I've
-            <span> built and explored.</span>
-          </h2>
-
-          <p>
-            A collection of projects and ideas focused on solving
-            practical problems with technology.
-          </p>
+        <div className="projects-heading">
+          <h2 className="page-heading">Projects</h2>
         </div>
 
         {/* =========================
@@ -271,6 +261,15 @@ function Projects() {
                   {project.description}
                 </p>
 
+                {/* LIVE PROJECT ACTION — intentionally above technology logos */}
+
+                <div className="project-links project-links-primary">
+                  <span className="project-link project-link-disabled">
+                    Visit Live
+                    <span>↗</span>
+                  </span>
+                </div>
+
                 {/* TECHNOLOGY LOGOS */}
 
                 <div className="project-technologies">
@@ -283,22 +282,6 @@ function Projects() {
                       />
                     )
                   )}
-
-                </div>
-
-                {/* LINKS */}
-
-                <div className="project-links">
-
-                  <span className="project-link project-link-disabled">
-                    GitHub
-                    <span>↗</span>
-                  </span>
-
-                  <span className="project-link project-link-disabled">
-                    View Project
-                    <span>↗</span>
-                  </span>
 
                 </div>
 

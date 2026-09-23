@@ -125,18 +125,8 @@ function Services() {
     <section className="services" id="services">
       <div className="services-container">
 
-        <div className="services-heading services-reveal">
-         <h2 className="page-heading">Services</h2>
-
-          <h2>
-            What I
-            <span> can build.</span>
-          </h2>
-
-          <p>
-            Practical development services focused on building
-            useful, modern, and reliable digital solutions.
-          </p>
+        <div className="services-heading">
+          <h2 className="page-heading">Services</h2>
         </div>
 
         <div className="services-grid">

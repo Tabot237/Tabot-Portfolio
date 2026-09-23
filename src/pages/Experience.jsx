@@ -96,19 +96,8 @@ function Experience() {
             HEADING
         ========================= */}
 
-        <div className="experience-heading experience-reveal">
-
-        <h2 className="page-heading">Experience</h2>
-          <h2>
-            Where I’ve
-            <span> learned and grown.</span>
-          </h2>
-
-          <p>
-            My journey through development, learning, and
-            hands-on experience.
-          </p>
-
+        <div className="experience-heading">
+          <h2 className="page-heading">Experience</h2>
         </div>
 
         {/* =========================
