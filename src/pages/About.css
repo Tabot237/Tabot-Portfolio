@@ -316,3 +316,7 @@
     transition: none;
   }
 }
+/* Light mode: keep the statistics clearly visible. */
+.theme-light .about-stats strong {
+  color: #202328;
+}

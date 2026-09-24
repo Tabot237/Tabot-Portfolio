@@ -151,17 +151,17 @@ function Home({ theme = "dark", onThemeChange = () => {} }) {
 
       <section className="hero">
         <div className="hero-content">
-          <div className="hero-orbit-label" aria-hidden="true">
-            <svg className="orbit-pointer" viewBox="0 0 28 32" aria-hidden="true">
-              <path d="M2 2 L25 16 L14 17 L10 29 Z" />
-            </svg>
-            <span className="orbit-name">TABOT</span>
-          </div>
-
           <h1 className="home-reveal">
             <span className="hero-line hero-line-1">Front-End Development,</span>
             <span className="hero-line hero-line-2">Responsive Design,</span>
             <span className="hero-line hero-line-3">Web Animations.</span>
+
+            <span className="hero-orbit-label" aria-hidden="true">
+              <svg className="orbit-pointer" viewBox="0 0 28 32" aria-hidden="true">
+                <path d="M2 2 L25 16 L14 17 L10 29 Z" />
+              </svg>
+              <span className="orbit-name">TABOT</span>
+            </span>
           </h1>
         </div>
 

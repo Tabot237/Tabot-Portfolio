@@ -261,6 +261,7 @@
 ========================================================= */
 
 .hero h1 {
+  position: relative;
   width: 100%;
   max-width: 760px;
 
@@ -322,11 +323,15 @@
    HERO TABOT LABEL
 ========================================================= */
 
+/* =========================================================
+   HERO TABOT LABEL / ORBIT
+========================================================= */
+
 .hero-orbit-label {
   position: absolute;
 
-  left: 18%;
-  top: 430px;
+  left: 50%;
+  top: 50%;
 
   width: 120px;
   height: 36px;
@@ -347,13 +352,21 @@
   box-shadow:
     0 8px 22px rgba(216,155,77,.18);
 
+  transform: translate(-50%, -50%);
   animation:
-    heroBadgeSixStops
-    12s
+    heroBadgeOrbit
+    4s
     cubic-bezier(.45,.05,.55,.95)
-    infinite;
+    6,
+    heroBadgeFaceExit
+    1.5s
+    ease-in-out
+    24s
+    1
+    forwards;
 
   will-change: transform, opacity;
+  z-index: 20;
 }
 
 .orbit-pointer {
@@ -374,11 +387,13 @@
 
   stroke-linejoin: round;
 
-  transform: rotate(-25deg);
+  transform: rotate(var(--pointer-angle, -25deg));
   transform-origin: center;
 
   filter:
     drop-shadow(0 0 2px rgba(255,255,255,.35));
+
+  z-index: 21;
 }
 
 .orbit-name {
@@ -389,6 +404,67 @@
   white-space: nowrap;
 
   transform: none;
+}
+
+/*
+   The TABOT badge and its arrow are one moving unit.
+   The complete unit travels around the hero words six times
+   instead of jumping between two fixed locations.
+*/
+@keyframes heroBadgeOrbit {
+  0% {
+    --pointer-angle: -25deg;
+    transform: translate(-50%, -50%) translate(-210px, 18px);
+  }
+
+  16% {
+    transform: translate(-50%, -50%) translate(-125px, -82px);
+  }
+
+  32% {
+    transform: translate(-50%, -50%) translate(10px, -112px);
+  }
+
+  48% {
+    transform: translate(-50%, -50%) translate(165px, -52px);
+  }
+
+  64% {
+    transform: translate(-50%, -50%) translate(205px, 55px);
+  }
+
+  80% {
+    transform: translate(-50%, -50%) translate(70px, 105px);
+  }
+
+  92% {
+    transform: translate(-50%, -50%) translate(-90px, 92px);
+  }
+
+  100% {
+    --pointer-angle: -25deg;
+    transform: translate(-50%, -50%) translate(-210px, 18px);
+  }
+}
+
+@keyframes heroBadgeFaceExit {
+  0% {
+    --pointer-angle: -25deg;
+    transform: translate(-50%, -50%) translate(-210px, 18px);
+    opacity: 1;
+  }
+
+  58% {
+    --pointer-angle: 135deg;
+    transform: translate(-50%, -50%) translate(clamp(300px, 44vw, 600px), 115px) rotate(8deg);
+    opacity: 1;
+  }
+
+  100% {
+    --pointer-angle: 135deg;
+    transform: translate(-50%, -50%) translate(clamp(300px, 44vw, 600px), 115px) rotate(8deg);
+    opacity: 0;
+  }
 }
 
 /* =========================================================
@@ -652,57 +728,6 @@
   50% {
     opacity: 1;
     transform: scale(1.08);
-  }
-}
-
-@keyframes heroBadgeSixStops {
-
-  0%,
-  9% {
-    transform: translate(0,0);
-    opacity: 1;
-  }
-
-  14%,
-  23% {
-    transform: translate(120px,-80px);
-    opacity: 1;
-  }
-
-  28%,
-  37% {
-    transform: translate(250px,-150px);
-    opacity: 1;
-  }
-
-  42%,
-  51% {
-    transform: translate(390px,-205px);
-    opacity: 1;
-  }
-
-  56%,
-  65% {
-    transform: translate(275px,55px);
-    opacity: 1;
-  }
-
-  70%,
-  79% {
-    transform: translate(105px,145px);
-    opacity: 1;
-  }
-
-  84%,
-  91% {
-    transform: translate(0,245px);
-    opacity: 1;
-  }
-
-  94%,
-  100% {
-    transform: translate(0,245px);
-    opacity: 0;
   }
 }
 
@@ -1161,24 +1186,15 @@
   }
 
   .hero-orbit-label {
-    left: 22%;
-
-    top: 350px;
-
     width: 108px;
-
     height: 32px;
-
     font-size: 8px;
   }
 
   .orbit-pointer {
     left: -22px;
-
     top: -19px;
-
     width: 21px;
-
     height: 25px;
   }
 }
@@ -1188,6 +1204,20 @@
 ========================================================= */
 
 @media (max-width: 360px) {
+
+  .hero-orbit-label {
+    animation:
+      heroBadgeOrbitTiny
+      4s
+      cubic-bezier(.45,.05,.55,.95)
+      6,
+      heroBadgeFaceExitTiny
+      1.5s
+      ease-in-out
+      24s
+      1
+      forwards;
+  }
 
   .hero {
     padding-left: 2%;
@@ -1224,73 +1254,6 @@
     height: 390px;
   }
 
-  .hero-orbit-label {
-    left: 18%;
-
-    top: 330px;
-  }
-}
-
-/* =========================================================
-   MOBILE BADGE ANIMATION
-========================================================= */
-
-@media (max-width: 520px) {
-
-  .hero-orbit-label {
-    animation-name: heroBadgeSixStopsMobile;
-  }
-}
-
-@keyframes heroBadgeSixStopsMobile {
-
-  0%,
-  9% {
-    transform: translate(0,0);
-    opacity: 1;
-  }
-
-  14%,
-  23% {
-    transform: translate(55px,-55px);
-    opacity: 1;
-  }
-
-  28%,
-  37% {
-    transform: translate(105px,-105px);
-    opacity: 1;
-  }
-
-  42%,
-  51% {
-    transform: translate(145px,-135px);
-    opacity: 1;
-  }
-
-  56%,
-  65% {
-    transform: translate(105px,30px);
-    opacity: 1;
-  }
-
-  70%,
-  79% {
-    transform: translate(55px,95px);
-    opacity: 1;
-  }
-
-  84%,
-  91% {
-    transform: translate(0,155px);
-    opacity: 1;
-  }
-
-  94%,
-  100% {
-    transform: translate(0,155px);
-    opacity: 0;
-  }
 }
 
 /* =========================================================
@@ -2041,10 +2004,92 @@
 }
 
 /* =========================================================
+   MOBILE HERO: CENTER THE WHOLE STAGGERED GROUP
+========================================================= */
+
+@media (max-width: 850px) {
+  .hero-content {
+    position: relative;
+    width: 100%;
+  }
+
+  .hero h1 {
+    left: 50%;
+    width: max-content;
+    max-width: none;
+    align-items: flex-start;
+  }
+
+  .hero h1.home-reveal {
+    transform: translateX(calc(-50% - 55px)) scale(.98);
+  }
+
+  .hero h1.home-reveal.show {
+    transform: translateX(-50%) scale(1);
+  }
+
+  .hero-orbit-label {
+    animation:
+      heroBadgeOrbitMobile
+      4s
+      cubic-bezier(.45,.05,.55,.95)
+      6,
+      heroBadgeFaceExitMobile
+      1.5s
+      ease-in-out
+      24s
+      1
+      forwards;
+  }
+}
+
+@keyframes heroBadgeOrbitMobile {
+  0% { --pointer-angle: -25deg; transform: translate(-50%, -50%) translate(-125px, 12px); }
+  16% { transform: translate(-50%, -50%) translate(-75px, -68px); }
+  32% { transform: translate(-50%, -50%) translate(0, -92px); }
+  48% { transform: translate(-50%, -50%) translate(95px, -55px); }
+  64% { transform: translate(-50%, -50%) translate(125px, 18px); }
+  80% { transform: translate(-50%, -50%) translate(70px, 82px); }
+  92% { transform: translate(-50%, -50%) translate(-25px, 105px); }
+  100% { --pointer-angle: -25deg; transform: translate(-50%, -50%) translate(-125px, 12px); }
+}
+
+@keyframes heroBadgeFaceExitMobile {
+  0% { --pointer-angle: -25deg;
+    transform: translate(-50%, -50%) translate(-125px, 12px);
+    opacity: 1;
+  }
+  58% {
+    --pointer-angle: 135deg;
+    transform: translate(-50%, -50%) translate(0, 255px) rotate(8deg);
+    opacity: 1;
+  }
+  100% {
+    --pointer-angle: 135deg;
+    transform: translate(-50%, -50%) translate(0, 255px) rotate(8deg);
+    opacity: 0;
+  }
+}
+
+/* =========================================================
    EXTREMELY SMALL SCREENS
 ========================================================= */
 
 @media (max-width: 360px) {
+
+  .hero-orbit-label {
+    animation:
+      heroBadgeOrbitTiny
+      2s
+      cubic-bezier(.45,.05,.55,.95)
+      6,
+      heroBadgeFaceExitTiny
+      1.5s
+      ease-in-out
+      12s
+      1
+      forwards;
+  }
 
   .hero {
     padding-left: 2%;
@@ -2075,10 +2120,23 @@
     height: 390px;
   }
 
-  .hero-orbit-label {
-    left: 18%;
-    top: 330px;
-  }
+}
+
+@keyframes heroBadgeOrbitTiny {
+  0% { --pointer-angle: -25deg; transform: translate(-50%, -50%) translate(-105px, 10px); }
+  16% { transform: translate(-50%, -50%) translate(-60px, -55px); }
+  32% { transform: translate(-50%, -50%) translate(0, -72px); }
+  48% { transform: translate(-50%, -50%) translate(72px, -42px); }
+  64% { transform: translate(-50%, -50%) translate(100px, 10px); }
+  80% { transform: translate(-50%, -50%) translate(55px, 65px); }
+  92% { transform: translate(-50%, -50%) translate(-20px, 82px); }
+  100% { --pointer-angle: -25deg; transform: translate(-50%, -50%) translate(-105px, 10px); }
+}
+
+@keyframes heroBadgeFaceExitTiny {
+  0% { --pointer-angle: -25deg; transform: translate(-50%, -50%) translate(-105px, 10px); opacity: 1; }
+  58% { --pointer-angle: 135deg; transform: translate(-50%, -50%) translate(0, 215px) rotate(8deg); opacity: 1; }
+  100% { --pointer-angle: 135deg; transform: translate(-50%, -50%) translate(0, 215px) rotate(8deg); opacity: 0; }
 }
 
 /* =========================================================
@@ -2107,4 +2165,29 @@
     drop-shadow(0 0 5px rgba(216,155,77,.45));
 
   z-index: 20;
+}
+
+/* =========================================================
+   REMOVE RIGHT-HAND SCROLL DIVISION COMPLETELY
+========================================================= */
+
+.scroll-indicator {
+  display: none !important;
+}
+
+/* Keep the viewport itself clean at every responsive width. */
+html,
+body,
+#root,
+.app-shell,
+.home {
+  max-width: 100%;
+}
+
+@media (max-width: 850px) {
+  .hero {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
