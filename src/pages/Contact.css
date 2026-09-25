@@ -291,3 +291,11 @@
     font-size: 24px;
   }
 }
+/* Contact form status message */
+.contact-status {
+  margin: 2px 0 0;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: #8fb4ff;
+}
