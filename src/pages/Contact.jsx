@@ -1,3 +1,4 @@
+```jsx
 import { useEffect, useState } from "react";
 import {
   FaEnvelope,
@@ -50,7 +51,7 @@ function Contact() {
     setStatus("Sending...");
 
     try {
-      const response = await fetch("http://localhost:5000/api/contact", {
+      const response = await fetch("/.netlify/functions/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -229,3 +230,4 @@ function Contact() {
 }
 
 export default Contact;
+```
