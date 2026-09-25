@@ -10,7 +10,10 @@ const connectDB = async () => {
     return cachedConnection;
   }
 
-  cachedConnection = await mongoose.connect(process.env.MONGODB_URI);
+  cachedConnection = await mongoose.connect(process.env.MONGODB_URI, {
+    serverSelectionTimeoutMS: 8000,
+    connectTimeoutMS: 8000,
+  });
 
   return cachedConnection;
 };
@@ -155,7 +158,7 @@ ${message.trim()}`,
       }),
     };
   } catch (error) {
-    console.error("Error saving contact message:", error.message);
+    console.error("Error saving contact message:", error);
 
     return {
       statusCode: 500,
