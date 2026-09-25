@@ -1,4 +1,3 @@
-```jsx
 import { useEffect, useState } from "react";
 import {
   FaEnvelope,
@@ -230,4 +229,3 @@ function Contact() {
 }
 
 export default Contact;
-```
