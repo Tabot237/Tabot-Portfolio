@@ -50,7 +50,11 @@ function Contact() {
     setStatus("Sending...");
 
     try {
-      const response = await fetch("/.netlify/functions/contact", {
+      const apiUrl = import.meta.env.DEV
+        ? "http://localhost:5000/api/contact"
+        : "/.netlify/functions/contact";
+
+      const response = await fetch(apiUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -96,7 +100,9 @@ function Contact() {
 
             <div className="contact-links">
               <a
-                href="mailto:"
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=tabot.promediasarl@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="contact-link-card contact-reveal"
               >
                 <div className="contact-brand-icon email">
@@ -114,7 +120,9 @@ function Contact() {
               </a>
 
               <a
-                href="#contact"
+                href="https://wa.me/237672563657?text=Hello%20Tabot,%20I%20visited%20your%20portfolio."
+                target="_blank"
+                rel="noopener noreferrer"
                 className="contact-link-card contact-reveal"
               >
                 <div className="contact-brand-icon whatsapp">
@@ -133,11 +141,21 @@ function Contact() {
             </div>
 
             <div className="contact-socials contact-reveal">
-              <a href="#contact" aria-label="GitHub">
+              <a
+                href="https://github.com/Tabot237"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+              >
                 <FaGithub />
               </a>
 
-              <a href="#contact" aria-label="LinkedIn">
+              <a
+                href="https://www.linkedin.com/in/tabotghislainorock"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+              >
                 <FaLinkedinIn />
               </a>
             </div>
@@ -210,11 +228,21 @@ function Contact() {
           </nav>
 
           <div className="footer-socials">
-            <a href="#contact" aria-label="GitHub">
+            <a
+              href="https://github.com/Tabot237"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+            >
               <FaGithub />
             </a>
 
-            <a href="#contact" aria-label="LinkedIn">
+            <a
+              href="https://www.linkedin.com/in/tabotghislainorock"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
               <FaLinkedinIn />
             </a>
           </div>

@@ -65,7 +65,7 @@ router.post("/contact", async (req, res) => {
     try {
       await resend.emails.send({
         from: "onboarding@resend.dev",
-        to: ["delivered@resend.dev"],
+        to: ["tabotghislain36@gmail.com"],
         subject: `New portfolio message from ${name.trim()}`,
         text: `
 Name: ${name.trim()}

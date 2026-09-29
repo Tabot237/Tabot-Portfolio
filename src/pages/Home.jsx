@@ -172,11 +172,6 @@ function Home({ theme = "dark", onThemeChange = () => {} }) {
           <img src={profileImage} alt="Tabot" className="profile-image" />
         </div>
 
-        <div className="scroll-indicator home-reveal">
-          <span>SCROLL DOWN</span>
-          <div className="scroll-line"></div>
-          <div className="scroll-dot"></div>
-        </div>
       </section>
     </main>
   );
